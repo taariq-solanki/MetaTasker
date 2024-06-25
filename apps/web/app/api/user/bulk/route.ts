@@ -1,12 +1,13 @@
 import { getServerSession } from "next-auth";
-import { authOption } from "../../../components/authoption";
+
 import { NextRequest, NextResponse } from "next/server";
-import { client } from "../route";
 import { use } from "react";
+import { authOption, client } from "../../auth/[...nextauth]/route";
 
 export  async function GET(req:any,res:any){
     const session=await getServerSession(authOption)
-    console.log(session?.user?.name)
+    // console.log(session.user.email)
+    // console.log(session?.user.id)
     if(session){//check if session engage find all users in db
 
         console.log("1")
