@@ -21,7 +21,7 @@ export const authOption = {
         console.log(credentials)
         // console.log(credentials.email)
         try {
-          console.log(10)
+          //console.log(10)
 
           const user:any = await client.user.findFirst({   //db call to find if user exists
             where: { userEmail: credentials.email },
@@ -32,12 +32,12 @@ export const authOption = {
               userPassword:true
             }
           })
-          console.log(user)
+          //console.log(user)
           //check if email and passsword matches
           let userValid = false
           if (credentials.email == user?.userEmail && credentials.password == user?.userPassword) {
             userValid = true
-            console.log(10)
+            //console.log(10)
             return {
               id: user.userId.toString(),
               email: user.userEmail,
@@ -68,7 +68,7 @@ export const authOption = {
   callbacks: {
     
     session: ({ session, token, user }: any) => {
-      console.log(token)
+      //console.log(token)
         if (session.user) {
          
           session.user.id = token.sub

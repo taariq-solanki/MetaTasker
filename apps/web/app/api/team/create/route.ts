@@ -3,7 +3,7 @@ import { client } from "../../auth/[...nextauth]/route";
 
 export async function POST(req:NextRequest,res:NextResponse){
     const team =await  req.json()
-    console.log(team)
+    //console.log(team)
     const teamUser=team.users || []
     const teamNameReq=team.teamName|| ""
     
