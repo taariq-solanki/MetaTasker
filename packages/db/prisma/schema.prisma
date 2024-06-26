@@ -21,7 +21,7 @@ model User{
   Teams Team[]
 }
 model Team{
-  teamId Int @id
+  teamId Int @id @default(autoincrement())
   teamName String
   users User[]
 }
