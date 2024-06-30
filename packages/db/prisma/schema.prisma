@@ -13,6 +13,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+
 model User{
   userId Int @id @default(autoincrement())
   userName String
@@ -24,4 +26,20 @@ model Team{
   teamId Int @id @default(autoincrement())
   teamName String
   users User[]
+  tasks Task[]
+}
+model Task{
+  taskId Int @id @default(autoincrement())
+  taskTitle String 
+  taskDescription String
+  taskStatus Status @default(incomplete)
+  teamId Int
+  team Team @relation(fields: [teamId], references: [teamId])
+}
+
+enum Status{
+  incomplete
+  completed
+  inprogress
+
 }

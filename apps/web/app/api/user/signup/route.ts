@@ -3,7 +3,9 @@ import { client } from "../../auth/[...nextauth]/route";
 
 
 export async function POST(req:NextRequest,res:NextResponse){
-    const userDetails=await req.json()
+    const userDetails:{userName:string,
+        userEmail:string,userPassword:string
+    }=await req.json()
 
     //if user exist return err
     const userExist= await client.user.findFirst({

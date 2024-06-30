@@ -12,7 +12,6 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "ui:add": "npx shadcn-ui@latest add",
-
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
@@ -28,6 +27,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
