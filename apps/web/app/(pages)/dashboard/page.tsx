@@ -3,14 +3,14 @@ import { authOption } from "../../api/auth/[...nextauth]/route"
 import { redirect } from "next/navigation"
 import { Appbar } from "@repo/ui/components/ui/appbar"
 import {DashboardMain} from "@repo/ui/components/ui/dashboardMain"
-export default function(){
+export default async function(){
 
 
 
-    const session=getServerSession(authOption)
+    const session:any=await getServerSession(authOption)
     
     return <div>
-        <Appbar userName={"shaan"}></Appbar>
+        <Appbar userName={session.user.name}></Appbar>
         <DashboardMain></DashboardMain>
 
     </div>

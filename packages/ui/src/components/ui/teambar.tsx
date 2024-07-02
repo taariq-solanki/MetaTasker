@@ -27,7 +27,7 @@ export function Teambar(){
         <div><h1 className="p-3 bg-white text-2xl font-bold">Teams</h1></div>
         {teamsArray.map(function(i:any){
             console.log(i.teamName)
-            return <Teams key={i.teamId} teamName={i.teamName}></Teams>
+            return <Teams key={i.teamId} teamName={i.teamName} teamIdd={i.teamId}></Teams>
         })}
     </div>
 }
