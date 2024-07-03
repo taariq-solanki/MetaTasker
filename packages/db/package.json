@@ -12,6 +12,9 @@
   "devDependencies": {
     "prisma": "^5.15.1"
   },
+  "exports":{
+    "./all":"./src/*ts"
+  },
   "dependencies": {
     "@prisma/client": "^5.15.1"
   }

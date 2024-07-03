@@ -2,13 +2,14 @@ import { useRecoilState } from "recoil"
 import { taskArrayAtom } from "@repo/store/src/atoms/tasksDetail";
 import { teamIdAtom } from "@repo/store/src/atoms/teamId"
 import axios from "axios";
+const beUrl=`${process.env.BACKEND_URL}`
 
 export function Teams({ teamIdd, teamName }: any) {
     const [teamId, setTeamId] = useRecoilState(teamIdAtom)
     const [taskArray, setTaskArray] = useRecoilState(taskArrayAtom)
     return <div>
         <div ><button onClick={async function () {
-            setTeamId(teamIdd)
+            setTeamId(parseInt(teamIdd))
             const taskDetail: any = await axios({
                 method: "GET",
                 url: `http://localhost:3000/api/task/get?teamId=${teamIdd}`
