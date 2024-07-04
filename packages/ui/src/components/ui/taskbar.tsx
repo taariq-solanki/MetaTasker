@@ -31,14 +31,14 @@ export function Taskbar() {
         newSocket.onmessage = (async(data: any) => {
             //setTaskArray(event.data)
             const newdata :any=await JSON.parse(data.data);
-            console.log(newdata,"auvwuvbwvubwvbwvw")
+            //console.log(newdata,"auvwuvbwvubwvbwvw")
             
-                console.log(typeof newdata)
+                //console.log(typeof newdata)
                 //console.log(typeof JSON.parse(newdata),"blueee")
                 setTaskArray(
                     newdata
                 );
-                console.log(taskArray,"after settask")
+                //console.log(taskArray,"after settask")
                 
             
             
@@ -80,10 +80,10 @@ export function Taskbar() {
                         return <Task completeonclick={
                             async function () {
                                 setTaskId(i.taskId)
-                                console.log(i.taskId, "hello")
-                                console.log(typeof taskArray, "bello")
+                                //console.log(i.taskId, "hello")
+                                //console.log(typeof taskArray, "bello")
                                 setStatus(statusS.completed)
-                                console.log(status)
+                                //console.log(status)
                                 socket?.send(JSON.stringify({ taskId: i.taskId, status: "completed" }))
 
                             }
