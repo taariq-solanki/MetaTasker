@@ -11,7 +11,7 @@ export default async function(){
     
     return <div>
         <Appbar userName={session.user.name}></Appbar>
-        <DashboardMain></DashboardMain>
+        <DashboardMain></DashboardMain> 
 
     </div>
 }
