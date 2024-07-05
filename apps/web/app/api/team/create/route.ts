@@ -15,7 +15,7 @@ export async function POST(req:NextRequest,res:NextResponse){
                 connect:teamUser.map(function (i:any){
                     return{
                         
-                        userId:i.userId
+                        userId:i
                     }
                 })
             }
