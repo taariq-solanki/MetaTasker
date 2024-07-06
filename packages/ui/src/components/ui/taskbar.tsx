@@ -5,6 +5,7 @@ import { Task } from "./tasks";
 import { useRecoilState } from "recoil";
 import { taskArrayAtom } from "@repo/store/src/atoms/tasksDetail";
 import { teamIdAtom } from "@repo/store/src/atoms/teamId"
+import axios from "axios";
 
 enum statusS {
     incomplete = "incomplete",
@@ -18,6 +19,9 @@ export function Taskbar() {
     const [teamId, setTeamId] = useRecoilState(teamIdAtom)
     const [status, setStatus] = useState(statusS.incomplete)
     const [taskId, setTaskId] = useState(0)
+    const [taskTitle, setTaskTitle] = useState("")
+    const [taskDescription, setTaskDescription] = useState("")
+    const [reloader,setReloader]=useState(true)
 
 
     useEffect(() => {
@@ -61,7 +65,7 @@ export function Taskbar() {
             newSocket.close();
         }
 
-    }, [teamId])
+    }, [teamId,reloader])
     //console.log(taskArray)
     console.log(teamId)
     // const taskss:{taskname:string,status:string}[]=[{taskname:"1",status:"incomplete"},{taskname:"2",status:"complete"},
@@ -77,7 +81,55 @@ export function Taskbar() {
             bg-white text-2xl font-bold">+</button></div>
         </div> */}
         <div className="grid grid-cols-3">
-            <div> <div className="font-black text-2xl  m-1 bg-white pl-1">Tasks</div>
+            <div> 
+                <div className="font-black border-2 border-black text-2xl shadow-md
+             rounded-md m-1 bg-white ">
+                <div className="bg-red-500 rounded-2xl w-full h-1"></div>
+                <div className="p-1">Tasks</div>
+                </div>
+                
+                
+                <div>
+                    <div className="bg-white p-4 m-1 border border-black rounded-md border ">
+                        <div className="flex justify-between m-1">
+                            <div className="text-xl font-bold  
+                             p-1 ">Title:  </div>
+                            <input onChange={function(i){
+                                setTaskTitle(i.target.value)
+                            }} className="shadow-inner
+                             p-1" type="text" placeholder="Todo" />
+                        </div>
+                        <div className="flex justify-between m-1">
+                            <div className="text-xl font-bold  
+                             p-1 ">Description:  </div>
+                            <input onChange={function(i){
+                                setTaskDescription(i.target.value)
+                            }} className="shadow-inner  
+                             p-1" type="text" placeholder="go to gym" />
+                        </div>
+                       
+                        <div>    
+                            <button onClick={async function(i){
+                                const createdTask=await axios({
+                                    url:"http://localhost:3000/api/task/create",
+                                    data:{
+                                        teamId:teamId,
+                                        taskTitle:taskTitle,
+                                        taskDescription:taskDescription
+                                    },
+                                    method:"POST"})
+                                console.log(createdTask)
+                                
+                            }} className="bg-white border border-black  
+                            m-1 p-1 w-full  rounded-md active:bg-slate-400
+                                hover:bg-blue-200">Create Task</button>
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+
 
                 {taskArray.map(function (i: any) {
                     if (i.taskStatus == "incomplete") {
@@ -101,7 +153,13 @@ export function Taskbar() {
                 })}
 
             </div>
-            <div><div className="font-black text-2xl m-1 bg-white pl-1">Tasks in progress</div>
+            <div>
+            <div className="font-black border-2  border-black text-2xl shadow-md
+             rounded-md m-1 bg-white ">
+                <div className="bg-yellow-300 rounded-full w-full h-1"></div>
+                <div className="p-1 ">Task in Proggress</div>
+                </div>
+
                 {taskArray.map(function (i: any) {
                     if (i.taskStatus == "inprogress") {
                         return <Task completeonclick={
@@ -111,18 +169,24 @@ export function Taskbar() {
 
                             }
                         }
-                        incompleteonclick={
-                            function () {
-                                setTaskId(i.taskId)
-                                socket?.send(JSON.stringify({ taskId: i.taskId, status: "incomplete" }))
+                            incompleteonclick={
+                                function () {
+                                    setTaskId(i.taskId)
+                                    socket?.send(JSON.stringify({ taskId: i.taskId, status: "incomplete" }))
 
+                                }
                             }
-                        }
-                        key={i.taskId} taskDetail={i}></Task>
+                            key={i.taskId} taskDetail={i}></Task>
                     }
                 })}
             </div>
-            <div><div className="font-black text-2xl  m-1 bg-white pl-1">Tasks completed</div>
+            <div>
+            <div className="font-black border-2 border-black text-2xl shadow-md
+             rounded-md m-1 bg-white ">
+                <div className="bg-green-500 rounded-2xl w-full h-1"></div>
+                <div className="p-1">Task Completed</div>
+                </div>
+
                 {taskArray.map(function (i: any) {
                     if (i.taskStatus == "completed") {
                         return <Task incompleteonclick={

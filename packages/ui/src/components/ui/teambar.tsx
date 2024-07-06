@@ -25,18 +25,20 @@ export function Teambar(){
     },[])
     
     return <div className="p-1">
-        <div className="flex justify-between"><h1 className="p-3 w-full bg-white text-2xl font-bold">Teams</h1>
+        <div className="flex justify-betweenfont-black border-4 border-black text-2xl shadow-md
+             rounded-md  bg-white fixed sticky shadow-md top-16"><h1 className="p-3 w-full bg-white text-2xl font-bold">Teams</h1>
             <div>< button onClick={function(){
                 router.push('/addTeam')
             }} 
-            className="p-3 bg-slate-100 active:bg-slate-200 hover:bg-slate-300 
+            className="p-3 bg-slate-100 active:bg-slate-200 hover:bg-black hover:text-white
             bg-white text-2xl font-bold">+</button>
             
             </div>
         </div>
-        {teamsArray.map(function(i:any){
+        <div>{teamsArray.map(function(i:any){
             console.log(i.teamName)
             return <Teams key={i.teamId} teamName={i.teamName} teamIdd={i.teamId}></Teams>
-        })}
+        })}</div>
+        
     </div>
 }

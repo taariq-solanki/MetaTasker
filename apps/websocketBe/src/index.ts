@@ -80,5 +80,5 @@ try{
     }
     console.log('WebSocket server is running on ws://localhost:8080');
 }catch{
-    console.log("somethng went off")
+    console.log("somethng wrong")
 }

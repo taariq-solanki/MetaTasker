@@ -18,8 +18,8 @@ export function Teams({ teamIdd, teamName }: any) {
             setTaskArray(taskDetail.data.tasks)
             console.log(taskDetail.data.tasks)
 
-        }} className="active:bg-slate-200 focus:ring focus:ring-black focus:ring-1
+        }} className="active:bg-slate-200 focus:ring shadow-md focus:ring-black focus:ring-1
          hover:bg-blue-100 mt-1 text-xl font-normal grid justify-items-start p-3
-         bg-white  rounded-md min-w-full text-xl">{teamName}{teamIdd}</button></div>
+         bg-white  rounded-md min-w-full text-xl border-black border">{teamName}</button></div>
     </div>
 }
