@@ -12,6 +12,9 @@ export default async function(){
     
 
     const session:any=await getServerSession(authOption)
+    if(!session){
+        redirect('/signup')
+    }
 
     
     return <div>

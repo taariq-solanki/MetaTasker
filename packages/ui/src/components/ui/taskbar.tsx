@@ -98,7 +98,7 @@ export function Taskbar() {
                             <input onChange={function(i){
                                 setTaskTitle(i.target.value)
                             }} className="shadow-inner
-                             p-1" type="text" placeholder="Todo" />
+                             p-1 ml-16 w-full" type="text" placeholder="Todo" />
                         </div>
                         <div className="flex justify-between m-1">
                             <div className="text-xl font-bold  
@@ -106,7 +106,7 @@ export function Taskbar() {
                             <input onChange={function(i){
                                 setTaskDescription(i.target.value)
                             }} className="shadow-inner  
-                             p-1" type="text" placeholder="go to gym" />
+                             p-1 w-full" type="text" placeholder="go to gym" />
                         </div>
                        
                         <div>    
