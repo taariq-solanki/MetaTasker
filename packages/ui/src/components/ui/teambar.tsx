@@ -24,9 +24,9 @@ export function Teambar(){
     run()
     },[])
     
-    return <div className="p-1">
-        <div className="flex justify-betweenfont-black border-4 border-black text-2xl shadow-md
-             rounded-md  bg-white fixed sticky shadow-md top-16"><h1 className="p-3 w-full bg-white text-2xl font-bold">Teams</h1>
+    return <div className="p-1 bg-zinc-100 h-full">
+        <div className="flex justify-between font-black border-4 border-black text-2xl shadow-md
+             rounded-md   fixed sticky shadow-md top-16"><h1 className="p-3 w-full bg-white text-2xl font-bold">Teams</h1>
             <div>< button onClick={function(){
                 router.push('/addTeam')
             }} 

@@ -75,28 +75,23 @@ export const authOption = {
       console.log(session)
       return session
     },
-    // redirect: ({ url, baseUrl }: any) => {
-      
-    //   if (url === '/api/auth/signout') {
-    //     console.log(url)
-    //     return `${baseUrl}/signin`;
-    //   }
-    //   // Redirect to dashboard after signin
-    //   if (url === '/api/auth/callback/credentials') {
-    //     console.log(url)
-
-    //     return `${baseUrl}/dashboard`;
-    //   }
-    //   // Allows relative callback URLs
-    //   if (url.startsWith("/")) {
-    //     console.log(url)
-    //     return `${baseUrl}${url}`;}
-    //   // Allows callback URLs on the same origin
-      
-    //   else if (new URL(url).origin === baseUrl) return url;
-    //   return baseUrl;
-    
-    // }
+    async redirect({ url, baseUrl }:any) {
+      // Allows relative callback URLs
+      console.log(baseUrl)
+      console.log(url)
+      if (url=='http://localhost:3000/dashboard')
+          
+      { console.log(1)
+          return `${baseUrl}/signup`}
+      // Allows callback URLs on the same origin
+      else if (url.startsWith("")) 
+        {console.log(2)
+           return `${baseUrl}/dashboard`}
+      else if (url=='http://localhost:3000/signup') 
+        {console.log(3)
+          return `${baseUrl}/dashboard`}
+      return `${baseUrl}`
+    }
   },
 
 

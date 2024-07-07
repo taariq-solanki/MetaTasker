@@ -37,7 +37,7 @@ export default function Signup() {
           <div className="grid  gap-4">
             <div className="grid gap-2">
               <Label htmlFor="first-name">User name</Label>
-              <Input onChange={function (i) {
+              <Input  onChange={function (i) {
                 setUserName(i.target.value)
               }} id="userName" placeholder="xyz" required />
             </div>
