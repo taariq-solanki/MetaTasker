@@ -84,7 +84,7 @@ export const authOption = {
       { console.log(1)
           return `${baseUrl}/signup`}
       // Allows callback URLs on the same origin
-      else if (url.startsWith("")) 
+      else if (url=='http://localhost:3000') 
         {console.log(2)
            return `${baseUrl}/dashboard`}
       else if (url=='http://localhost:3000/signup') 

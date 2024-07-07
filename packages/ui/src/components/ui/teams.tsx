@@ -14,7 +14,7 @@ export function Teams({ teamIdd, teamName }: any) {
             setTeamName(teamName)
             const taskDetail: any = await axios({
                 method: "GET",
-                url: `http://localhost:3000/api/task/get?teamId=${teamIdd}`
+                url: `/api/task/get?teamId=${teamIdd}`
             })
 
             setTaskArray(taskDetail.data.tasks)

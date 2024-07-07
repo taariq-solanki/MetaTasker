@@ -32,7 +32,7 @@ export function AddTeamDash() {
             // const session:any=await getServerSession()
             const response: any = await axios({
                 method: "GET",
-                url: "http://localhost:3000/api/user/bulk?filter=" + searchUser
+                url: "/api/user/bulk?filter=" + searchUser
             })
             setUser(response.data)
             console.log(response.data)
@@ -78,7 +78,7 @@ export function AddTeamDash() {
                         console.log(tempObj)
 
                         const team = await axios({
-                            url: "http://localhost:3000/api/team/create",
+                            url: "/api/team/create",
                             method: "POST",
                             data: tempObj
                         })

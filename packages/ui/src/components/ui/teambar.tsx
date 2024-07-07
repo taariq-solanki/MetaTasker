@@ -16,7 +16,7 @@ export function Teambar(){
     {async function run(){
         const teamDetails:any =await axios({
             method:"GET",
-            url:"http://localhost:3000/api/team/get"
+            url:"/api/team/get"
         })
         console.log(teamDetails.data.Teams)
         setTeamsArray(teamDetails.data.Teams)
@@ -25,7 +25,7 @@ export function Teambar(){
     },[])
     
     return <div className="p-1 bg-zinc-100 h-full">
-        <div className="flex justify-between font-black border-4 border-black text-2xl shadow-md
+        <div className="flex justify-between mb-2 font-black border-4 border-black text-2xl shadow-md
              rounded-md   fixed sticky shadow-md top-16"><h1 className="p-3 w-full bg-white text-2xl font-bold">Teams</h1>
             <div>< button onClick={function(){
                 router.push('/addTeam')

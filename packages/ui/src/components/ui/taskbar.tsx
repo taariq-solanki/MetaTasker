@@ -25,8 +25,11 @@ export function Taskbar() {
     const [teamNamee, setTeamName] = useRecoilState(teamNameAtom)
 
     useEffect(() => {
-
-        const newSocket = new WebSocket(`ws://localhost:8080/?teamId=${teamId}`);
+        const port = process.env.NODE_ENV === 'development' ? ':8080' : '';
+        const wsUrl = `ws://${window.location.hostname}${port}/?teamId=${teamId}`;
+        console.log(wsUrl)
+        const pasrturl=`ws://localhost:8080/?teamId=${teamId}`
+        const newSocket = new WebSocket(wsUrl);
         newSocket.onopen = (function () {
             console.log("connection done")
             //newSocket.send(JSON.stringify("from client-connected"))
@@ -109,7 +112,7 @@ export function Taskbar() {
                         <div>    
                             <button onClick={async function(i){
                                 const createdTask=await axios({
-                                    url:"http://localhost:3000/api/task/create",
+                                    url:"/api/task/create",
                                     data:{
                                         teamId:teamId,
                                         taskTitle:taskTitle,

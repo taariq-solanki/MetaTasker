@@ -5,12 +5,13 @@ import { WebSocket, WebSocketServer } from "ws"
 import { PrismaClient } from '@prisma/client'
 const client = new PrismaClient()
 const app = express()
-const server = app.listen(8080)
+const PORT = process.env.PORT || 8080;
+const server = app.listen(PORT)
 const socketServer = new WebSocketServer({ server: server })
 
 const teamsConnected = new Map()
 //const tasks=client.task.find
-try{
+async function run(){
     async function dbTask(newData: any,teamId:any) {
         console.log(newData)
         try {
@@ -79,6 +80,10 @@ try{
         }
     }
     console.log('WebSocket server is running on ws://localhost:8080');
+}
+try{
+    run()
 }catch{
     console.log("somethng wrong")
+    run()
 }
