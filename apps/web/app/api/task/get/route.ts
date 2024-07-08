@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { client } from "../../auth/[...nextauth]/route";
+import { client } from "../../../components/client";
 
 
 

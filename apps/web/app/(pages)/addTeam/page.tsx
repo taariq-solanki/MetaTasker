@@ -1,7 +1,8 @@
 import { Appbar } from "@repo/ui/components/ui/appbar";
-import { authOption } from "../../api/auth/[...nextauth]/route";
+
 import { getServerSession } from "next-auth";
 import {AddTeamDash} from "@repo/ui/components/ui/addTeamDash"
+import { authOption } from "../../components/client";
 
 export default async function(){
     const session:any=await getServerSession(authOption)

@@ -2,7 +2,8 @@ import { getServerSession } from "next-auth";
 
 import { NextRequest, NextResponse } from "next/server";
 import { use } from "react";
-import { authOption, client } from "../../auth/[...nextauth]/route";
+
+import { authOption, client } from "../../../components/client";
 
 export  async function GET(req:NextRequest,res:any){
     const session=await getServerSession(authOption)

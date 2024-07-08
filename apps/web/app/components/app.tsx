@@ -2,7 +2,7 @@
 
 import { getServerSession } from "next-auth"
 import { signIn, signOut, useSession } from "next-auth/react"
-import { authOption } from "../api/auth/[...nextauth]/route"
+
 import { Button } from "@repo/ui/components/ui/button"
 
 export function Appbar() {

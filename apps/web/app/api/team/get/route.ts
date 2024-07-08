@@ -1,5 +1,6 @@
 import { copyFileSync } from "fs";
-import { authOption, client } from "../../auth/[...nextauth]/route";
+
+import { authOption, client } from "../../../components/client";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 

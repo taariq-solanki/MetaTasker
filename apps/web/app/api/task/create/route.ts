@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { client } from "../../auth/[...nextauth]/route";
+import { client } from "../../../components/client";
+//import { client } from "../../auth/[...nextauth]/route";
 
 export async function POST(req:NextRequest){
     const data=await req.json()
