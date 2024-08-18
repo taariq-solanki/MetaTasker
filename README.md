@@ -6,11 +6,11 @@ This is an official starter Turborepo.
 
 https://github.com/kshaan-ali/MetaTasker/assets/92352537/ac81b23b-31bf-49f4-b892-a72b85c033dd
 
-![screenshot](signup.png)
+![screenshot](signup.PNG)
 
-![screenshot](landing.png)
+![screenshot](landingpage.PNG)
 
-![screenshot](signin.png)
+![screenshot](signin.PNG)
 
 
 
