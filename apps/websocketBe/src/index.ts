@@ -85,5 +85,5 @@ try{
     run()
 }catch{
     console.log("somethng wrong")
-    run()
+    
 }

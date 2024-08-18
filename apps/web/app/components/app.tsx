@@ -6,7 +6,7 @@ import { signIn, signOut, useSession } from "next-auth/react"
 import { Button } from "@repo/ui/components/ui/button"
 
 export function Appbar() {
-
+ 
 
     const session = useSession()
     console.log(session)
@@ -22,7 +22,7 @@ export function Appbar() {
         return <div>
             <Button onClick={function () {
                 signIn()
-            }} variant="outline">sign in</Button>
+            }} variant="outline">Sign In</Button>
            
         </div>
     }
