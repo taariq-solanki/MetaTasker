@@ -2,7 +2,8 @@
   "name": "todoforteam",
   "private": true,
   "scripts": {
-    "build": "turbo build",
+    "prisma:generate": "prisma generate",
+    "build": "npm run prisma:generate && turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
@@ -25,5 +26,4 @@
     "axios": "^1.7.2",
     "recoil": "^0.7.7"
   }
-  
 }
